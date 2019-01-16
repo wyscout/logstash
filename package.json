@@ -1,7 +1,7 @@
 {
-  "name": "logstash",
-  "version": "2.0.0",
-  "description": "Robust logger for node and the browser that sends log messages to a logstash HTTP endpoint",
+  "name": "@wyscout/logstash",
+  "version": "1.0.0",
+  "description": "Logger for node and the browser that sends log messages to a logstash Wyscout HTTP endpoint",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist"
@@ -17,7 +17,7 @@
     "logger",
     "browser"
   ],
-  "author": "Steffen Strätz",
+  "author": "Wyscout",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/moooji/logstash/issues"

@@ -4,7 +4,9 @@ var axios = require('axios');
 var loggers = [];
 
 function create(url, tags, level) {
-  return new Logstash(url, tags, level);
+  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+
+  return new Logstash(url, tags, level, options);
 }
 
 function Logstash(url) {

@@ -1,8 +1,8 @@
 const axios = require('axios');
 const loggers = [];
 
-function create(url, tags, level) {
-  return new Logstash(url, tags, level);
+function create(url, tags, level, options = {}) {
+  return new Logstash(url, tags, level, options);
 }
 
 function Logstash(url, tags = [], level = "info", options = {}) {
@@ -24,7 +24,7 @@ Logstash.prototype._trySendEvent = function _trySendEvent() {
   if (!this.queue.length || this.isSending) {
     return;
   }
-  
+
   this.isSending = true;
   const event = this.queue.shift();
 
@@ -55,7 +55,7 @@ Logstash.prototype._trySendEvent = function _trySendEvent() {
 
 Logstash.prototype.log = function log(level, message, fields) {
   const event = { level, fields, message };
-  
+
   event['@timestamp'] = new Date().toISOString();
   event['@tags'] = this.tags;
 
